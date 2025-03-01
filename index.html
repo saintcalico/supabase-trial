@@ -1,52 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Supabase Test</title>
-    <style>
-        #data-container {
-            margin-top: 20px;
-        }
-    </style>
+  <title>Supabase Minimal Test</title>
 </head>
 <body>
-    <h1>Supabase Test</h1>
-    <button id="fetch-button">Fetch Data</button>
-    <div id="data-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const SUPABASE_URL = 'https://kxoexwdhzcxmxzygwatq.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4b2V4d2RoemN4bXh6eWd3YXRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk3MDk4MjAsImV4cCI6MjA1NTI4NTgyMH0.wXpVEFOOHHReYwJj6cDltmjy3Ff5MXG75lFhA_8xS78';
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const SUPABASE_URL = 'https://kxoexwdhzcxmxzygwatq.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4b2V4d2RoemN4bXh6eWd3YXRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk3MDk4MjAsImV4cCI6MjA1NTI4NTgyMH0.wXpVEFOOHHReYwJj6cDltmjy3Ff5MXG75lFhA_8xS78';
+      const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    document.getElementById('fetch-button').addEventListener('click', fetchData);
-
-    // ... (rest of your fetchData and displayData functions)
-
-    // Example insert function.
-    async function insertData(){
-        const { error } = await supabase
-            .from('test_table')
-            .insert({ some_column: 'test_value' }); //replace 'test_table' and 'some_column'
-
-        if (error) {
-            console.error('Error inserting data:', error);
-            alert('Error inserting data. Check console.');
-        } else {
-            alert("Data inserted successfully!");
-            fetchData(); //refresh data after insert.
-        }
-    }
-
-    //Example button creation and event listener.
-    const insertButton = document.createElement('button');
-    insertButton.textContent = "Insert Test Data";
-    insertButton.addEventListener('click', insertData);
-    document.body.appendChild(insertButton);
-
-});
-    </script>
+      console.log('Supabase client:', supabase);
+    });
+  </script>
 </body>
 </html>
