@@ -18,28 +18,29 @@
 
   <script>
     // Initialize Supabase client
-    const supabaseUrl = 'https://kxoexwdhzcxmxzygwatq.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4b2V4d2RoemN4bXh6eWd3YXRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk3MDk4MjAsImV4cCI6MjA1NTI4NTgyMH0.wXpVEFOOHHReYwJj6cDltmjy3Ff5MXG75lFhA_8xS78';
-    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+    // Initialize Supabase client
+const supabaseUrl = 'https://kxoexwdhzcxmxzygwatq.supabase.co'; // Replace with your URL
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt4b2V4d2RoemN4bXh6eWd3YXRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk3MDk4MjAsImV4cCI6MjA1NTI4NTgyMH0.wXpVEFOOHHReYwJj6cDltmjy3Ff5MXG75lFhA_8xS78'; // Replace with your Key
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-    // Handle form submission
-    document.getElementById('signup-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
+// Handle form submission
+document.getElementById('signup-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
-      const { data, error } = await supabase.auth.signUp({
-        email: email,
-        password: password,
-      });
+  const { data, error } = await supabase.auth.signUp({
+    email: email,
+    password: password,
+  });
 
-      if (error) {
-        alert('Error signing up: ' + error.message);
-      } else {
-        alert('Sign-up successful!');
-      }
-    });
+  if (error) {
+    alert('Error signing up: ' + error.message);
+  } else {
+    alert('Sign-up successful!');
+  }
+});
   </script>
 </body>
 </html>
