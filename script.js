@@ -7,9 +7,9 @@ document.getElementById('checkoutForm').addEventListener('submit', async (e) => 
     e.preventDefault();
 
     const formData = {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-    };
+      first_name: document.getElementById('firstName').value, // Use the correct column name
+      last_name: document.getElementById('lastName').value,  // Use the correct column name
+  };
 
     try {
         // Use supabaseClient here
